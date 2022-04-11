@@ -7,9 +7,9 @@ pipeline {
                 bat 'mvn clean package'
             }
         }
-        stage('Test') {
+        stage('build docker image') {
             steps {
-                echo 'hello test'
+                bat 'docker build -t shihaji/springpro:latest .'
             }
            
         }
