@@ -23,12 +23,19 @@ pipeline {
    					 bat 'docker login -u shihaji -p %myvariable%'
    					 
 					}
-				
-   				  
-						
+							
 				
                 echo 'logged in docker'
             }
         }
+        
+        stage('docker push') { 
+            steps {
+               
+               bat 'docker push shihaji/springpro:latest'              			
+               
+            }
+        }
+        
     }
 }
