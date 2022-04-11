@@ -18,7 +18,9 @@ pipeline {
         }
         stage('docker login') { 
             steps {
-                bat 'docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+                withCredentials([string(credentialsId: 'docker-password', variable: 'dockerpassword')]) {
+    	             bat 'docker login -u shihaji -p'
+				}
                 echo 'logged in docker'
             }
         }
