@@ -19,6 +19,10 @@ pipeline {
                 withCredentials([string(credentialsId: 'docker-password', variable: 'dockerpassword')]) {
     	             bat 'docker login -u shihaji -p ${dockerpassword}'
 				}
+				withCredentials([string(credentialsId: 'dockpass', variable: 'mydocker')]) {
+   				  bat 'docker login -u shihaji -p ${mydocker}'
+						}
+				
                 echo 'logged in docker'
             }
         }
