@@ -17,8 +17,13 @@ pipeline {
         stage('docker login') { 
             steps {
                
+               withCredentials([string(credentialsId: 'mypassword', variable: 'myvariable')]) {
+   					 
+   					 bat 'docker login -u shihaji -p ${myvariable}'
+   					 
+					}
 				
-   				  bat 'docker login -u shihaji -p 8014ac32-eae5-4c90-88d4-bad61c202639'
+   				  
 						
 				
                 echo 'logged in docker'
