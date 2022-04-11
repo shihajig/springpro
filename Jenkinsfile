@@ -19,7 +19,7 @@ pipeline {
                
                withCredentials([string(credentialsId: 'mypassword', variable: 'myvariable')]) {
    					 
-   					 bat 'docker login -u shihaji -p ${myvariable}'
+   					 bat 'docker login -u shihaji -p $myvariable'
    					 
 					}
 				
