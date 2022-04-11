@@ -1,8 +1,6 @@
 pipeline {
     agent any
-    environment{
-    	DOCKERHUB_CREDENTIALS = credentials('shihaji-docker')
-    }
+   
     stages {
         stage('Build') {
             steps {
