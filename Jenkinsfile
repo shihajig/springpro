@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment{
+    	DOCKERHUB_CREDENTIALS = credentials('shihaji-docker')
+    }
     stages {
         stage('Build') {
             steps {
@@ -13,9 +16,10 @@ pipeline {
             }
            
         }
-        stage('Deliver') { 
+        stage('docker login') { 
             steps {
-                echo 'hello deliver'
+                bat 'docker login -u $DOCKER_CREDENTIALS_USR --password-stdin'
+                echo 'logged in docker'
             }
         }
     }
