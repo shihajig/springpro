@@ -20,7 +20,7 @@ pipeline {
                withCredentials([string(credentialsId: 'mypassword', variable: 'myvariable')]) {
    					 
    					 
-   					 bat 'echo $myvariable'
+   					 bat 'echo ${myvariable}'
    					 
 					}
 				
