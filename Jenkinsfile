@@ -20,7 +20,7 @@ pipeline {
                withCredentials([string(credentialsId: 'mypassword', variable: 'myvariable')]) {
    					 
    					 
-   					 bat 'echo $myvariable | docker login --username shihaji --password-stdin'
+   					 bat 'echo "$myvariable" | docker login --username shihaji --password-stdin'
    					 
 					}
 				
